@@ -21,7 +21,7 @@ function chooseFavColor(ev) {
 }
     
 function canvasClicked(ev) {
-    // console.log(gCdraw.strokeStyle);  
+    // console.log(gCdraw.strokeStyle);\  
     // console.log("work");
     console.log(ev);
     gCdraw.stroke()
