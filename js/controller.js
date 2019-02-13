@@ -6,22 +6,25 @@ function init() {
     gCdraw = gCanvas.getContext('2d');
 }
 
-<<<<<<< HEAD
-function chooseFavColor() {
-    var colorChoosen = document.querySelector('#fav-color');
-    console.log(colorChoosen);
-=======
 var colorChoosen = document.querySelector('#fav-color')
 colorChoosen.addEventListener("change",chooseFavColor, false)
-console.log(colorChoosen);
+// console.log(colorChoosen);
+
+
+
 function chooseFavColor(ev) {
-    var newColor = ev.target.value;
-    console.log(newColor);
+    // console.log(ev);
     
->>>>>>> 4cd8e8e33def9ecbc05d2f462a4b515c4ebdc418
+    var newColor = ev.target.value;
+    gCdraw.strokeStyle = newColor;
+    // console.log(gCdraw.strokeStyle);
+    
 }
     
 function canvasClicked(ev) {
-    console.log("work");
+    // console.log(gCdraw.strokeStyle);
+    
+    // console.log("work");
     console.log(ev);
+    gCdraw.stroke()
 }
