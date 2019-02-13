@@ -6,30 +6,22 @@ function init() {
     gCdraw = gCanvas.getContext('2d');
 }
 
-var colorChoosen = document.querySelector('#fav-color')
-colorChoosen.addEventListener("change", chooseFavColor, false)
-// console.log(colorChoosen);
-
-
-function chooseFavColor(ev) {
-    // console.log(ev);
-    var newColor = ev.target.value;
-    gCdraw.strokeStyle = newColor;
-    // console.log(gCdraw.strokeStyle);
-}
-
 function canvasClicked(ev) {
-    // console.log(gCdraw.strokeStyle);\  
-    // console.log("work");
-    isMouseDown = true;
-    // console.log(ev);
+   if (gUserPrefs.isSaved === true) {
+       isMouseDown = true;
+   } else {
+    gCdraw.font = '15px serif';
+    gCdraw.fillText('You got to save your prefrences before you draw', 10, 50);
+   }
+    
 
 }
 
 function mouseMove(ev) {
-    console.log(ev);
+    // console.log(ev);
+    // chooseFavColor(ev);
     if (isMouseDown && ev.buttons === 1) {
-        gCdraw.stroke()
+        gCdraw.fillStyle = gUserPrefs.strokeColor;
         gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
     }
 }
@@ -37,4 +29,20 @@ function mouseMove(ev) {
 function downloadCanvas(elLink) {
     elLink.href = gCanvas.toDataURL()
     elLink.download = 'my-canvas.jpg'
+}
+
+function onSave(ev) {
+    ev.preventDefault();
+    var isSaved = true;
+    var colorChoosen = document.querySelector('#fav-color').value
+    var BgColorChoosen = document.querySelector('#bg-color').value
+    var shape = document.querySelector('.shape').value
+    // colorChoosen.addEventListener("change", chooseFavColor, false)
+
+   createUserPrefs(colorChoosen, BgColorChoosen, shape, isSaved);
+}
+
+function onClear() {
+    gUserPrefs.isSaved = false;
+    // gUserPrefs = '';
 }
