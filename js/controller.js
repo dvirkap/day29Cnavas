@@ -38,8 +38,10 @@ function onSave(ev) {
     var BgColorChoosen = document.querySelector('#bg-color').value
     var shape = document.querySelector('.shape').value
     // colorChoosen.addEventListener("change", chooseFavColor, false)
-
+    gCdraw.fillStyle = BgColorChoosen;
+    gCdraw.fillRect(0, 0, gCanvas.width, gCanvas.height)
    createUserPrefs(colorChoosen, BgColorChoosen, shape, isSaved);
+   //set background color
 }
 
 function onClear() {
