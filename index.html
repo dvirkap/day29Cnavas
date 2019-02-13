@@ -24,7 +24,10 @@
         </form> 
         <canvas id="sarelDvir" width="500" height="500" onmousedown="canvasClicked(event)"  onmousemove="mouseMove(event)"></canvas><br/>
         <a href="" type="button" onclick="downloadCanvas(this)">DOWNLOAD</a>
-
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden"/>
+            <button type="submit">Publsh</button>
+          </form>
         <div id="fb-root"></div>
         <div class="share-container"></div>
     </main>
