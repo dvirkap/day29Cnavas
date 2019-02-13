@@ -6,19 +6,8 @@ function init() {
     gCdraw = gCanvas.getContext('2d');
 }
 
-var colorChoosen = document.querySelector('#fav-color')
-colorChoosen.addEventListener("change", chooseFavColor, false)
-// console.log(colorChoosen);
-
-function chooseFavColor(ev) {
-    // console.log(ev);
-    var newColor = ev.target.value;
-    gCdraw.strokeStyle = newColor;
-    // console.log(gCdraw.strokeStyle);
-}
-
 function canvasClicked(ev) {
-    // console.log(gCdraw.strokeStyle);\  
+    // console.log(gCdraw.strokeStyle);
     // console.log("work");
     isMouseDown = true;
     // console.log(ev);
@@ -27,6 +16,7 @@ function canvasClicked(ev) {
 
 function mouseMove(ev) {
     // console.log(ev);
+    chooseFavColor(ev);
     if (isMouseDown) {
         gCdraw.stroke()
         gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
@@ -36,4 +26,14 @@ function mouseMove(ev) {
 function downloadCanvas(elLink) {
     elLink.href = gCanvas.toDataURL()
     elLink.download = 'my-canvas.jpg'
+}
+
+function onSave(ev) {
+    ev.preventDefault();
+    var colorChoosen = document.querySelector('#fav-color').value
+    var BgColorChoosen = document.querySelector('#bg-color').value
+    var shape = document.querySelector('.shape').value
+    // colorChoosen.addEventListener("change", chooseFavColor, false)
+
+   createUserPrefs(colorChoosen, BgColorChoosen, shape);
 }
