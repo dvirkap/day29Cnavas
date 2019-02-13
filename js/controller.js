@@ -6,9 +6,14 @@ function init() {
     gCdraw = gCanvas.getContext('2d');
 }
 
-function chooseFavColor() {
-    var colorChoosen = document.querySelector('#fav-color')
-    console.log(colorChoosen);
+var colorChoosen = document.querySelector('#fav-color')
+colorChoosen.addEventListener("change",chooseFavColor, false)
+console.log(colorChoosen);
+function chooseFavColor(ev) {
+    var newColor = ev.target.value;
+    console.log(newColor);
+    
+}
     
 function canvasClicked(ev) {
     console.log("work");
