@@ -23,10 +23,13 @@ function chooseFavColor(ev) {
 function canvasClicked(ev) {
     // console.log(gCdraw.strokeStyle);  
     // console.log("work");
-    gCdraw.addEventListener("change",)
+    // gCdraw.addEventListener("change",)
     console.log(ev);
     gCdraw.stroke()
     gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
+}
 
-    gCdraw
+function downloadCanvas(elLink) {
+    elLink.href = gCanvas.toDataURL()
+    elLink.download = 'my-canvas.jpg'
 }
