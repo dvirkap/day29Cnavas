@@ -7,11 +7,8 @@ function init() {
 }
 
 var colorChoosen = document.querySelector('#fav-color')
-colorChoosen.addEventListener("change",chooseFavColor, false)
+colorChoosen.addEventListener("change", chooseFavColor, false)
 // console.log(colorChoosen);
-
-
-
 
 function chooseFavColor(ev) {
     // console.log(ev);
@@ -19,22 +16,24 @@ function chooseFavColor(ev) {
     gCdraw.strokeStyle = newColor;
     // console.log(gCdraw.strokeStyle);
 }
-    
+
 function canvasClicked(ev) {
     // console.log(gCdraw.strokeStyle);\  
     // console.log("work");
     isMouseDown = true;
     // console.log(ev);
-    
+
 }
 
 function mouseMove(ev) {
     // console.log(ev);
-    
-    if(isMouseDown) {
-
+    if (isMouseDown) {
         gCdraw.stroke()
         gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
-
     }
+}
+
+function downloadCanvas(elLink) {
+    elLink.href = gCanvas.toDataURL()
+    elLink.download = 'my-canvas.jpg'
 }

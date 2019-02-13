@@ -21,8 +21,12 @@
             <button class="submit" onclick="onSave()">Save</button>
             <button class="clear" onclick= "onClear()">Clear</button>
 
-        </form>
-        <canvas id="sarelDvir" width="500" height="500" onmousedown="canvasClicked(event)"  onmousemove="mouseMove(event)"></canvas>
+        </form> 
+        <canvas id="sarelDvir" width="500" height="500" onmousedown="canvasClicked(event)"  onmousemove="mouseMove(event)"></canvas><br/>
+        <a href="" type="button" onclick="downloadCanvas(this)">DOWNLOAD</a>
+
+        <div id="fb-root"></div>
+        <div class="share-container"></div>
     </main>
         <script src="js/controller.js"></script>
         <script src="js/canvas-service.js"></script>
