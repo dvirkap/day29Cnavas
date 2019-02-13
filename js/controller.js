@@ -10,6 +10,13 @@ var colorChoosen = document.querySelector('#fav-color')
 colorChoosen.addEventListener("change",chooseFavColor, false)
 // console.log(colorChoosen);
 
+function onsave() {
+    var userPref = {
+        strokeColor: '',
+        bgColor: '',
+        shape: ''
+    }
+}
 
 
 function chooseFavColor(ev) {

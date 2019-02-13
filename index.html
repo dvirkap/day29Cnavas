@@ -8,9 +8,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="init()">
-    <h3>Select your favourite color:</h3>
-    <input type="color" id="fav-color" value="#ff5577" >
-    <canvas id="sarelDvir" width="500" height="500" onclick="canvasClicked(event)" ></canvas>
-    <script src="js/controller.js"></script>
+    <main class="canvas-wrapper">
+        <form>
+                <h3>Draw your favourite shape with your desired colour:</h3>
+            Stroke: <input type="color" id="fav-color" value="#ff5577"/>
+            Fill : <input type="color" id="fav-color" value="#ff5577"/>
+            <select class="shape">
+                <option value="square">SQUARE</option>
+                <option value="rect">RECTANGLE</option>
+                <option value="circle">CIRCLE</option>
+            </select>
+            <button class="submit" onclick="onSave()">Save</button>
+            <button class="clear" onclick= "onClear()">Clear</button>
+
+        </form>
+        <canvas id="sarelDvir" width="500" height="500" onclick="canvasClicked(event)" ></canvas>
+    </main>
+        <script src="js/controller.js"></script>
 </body>
 </html>
