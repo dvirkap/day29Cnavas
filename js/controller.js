@@ -18,7 +18,7 @@ function canvasClicked(ev) {
 }
 
 function mouseMove(ev) {
-    // console.log(ev);
+    console.log(ev);
     // chooseFavColor(ev);
     if (isMouseDown && ev.buttons === 1) {
         gCdraw.fillStyle = gUserPrefs.strokeColor;
