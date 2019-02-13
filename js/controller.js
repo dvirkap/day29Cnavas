@@ -1,5 +1,5 @@
-var gCanvas;
-var gCdraw;
+'use strict'
+
 
 function init() {
     gCanvas = document.querySelector('#sarelDvir');
@@ -10,27 +10,18 @@ var colorChoosen = document.querySelector('#fav-color')
 colorChoosen.addEventListener("change",chooseFavColor, false)
 // console.log(colorChoosen);
 
-function onsave() {
-    var userPref = {
-        strokeColor: '',
-        bgColor: '',
-        shape: ''
-    }
-}
+
 
 
 function chooseFavColor(ev) {
     // console.log(ev);
-    
     var newColor = ev.target.value;
     gCdraw.strokeStyle = newColor;
     // console.log(gCdraw.strokeStyle);
-    
 }
     
 function canvasClicked(ev) {
-    // console.log(gCdraw.strokeStyle);
-    
+    // console.log(gCdraw.strokeStyle);  
     // console.log("work");
     console.log(ev);
     gCdraw.stroke()
