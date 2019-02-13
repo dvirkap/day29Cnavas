@@ -7,18 +7,21 @@ function init() {
 }
 
 function canvasClicked(ev) {
-    // console.log(gCdraw.strokeStyle);
-    // console.log("work");
-    isMouseDown = true;
-    // console.log(ev);
+   if (gUserPrefs.isSaved === true) {
+       isMouseDown = true;
+   } else {
+    gCdraw.font = '15px serif';
+    gCdraw.fillText('You got to save your prefrences before you draw', 10, 50);
+   }
+    
 
 }
 
 function mouseMove(ev) {
     // console.log(ev);
-    chooseFavColor(ev);
-    if (isMouseDown) {
-        gCdraw.stroke()
+    // chooseFavColor(ev);
+    if (isMouseDown && ev.buttons === 1) {
+        gCdraw.fillStyle = gUserPrefs.strokeColor;
         gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
     }
 }
@@ -30,10 +33,16 @@ function downloadCanvas(elLink) {
 
 function onSave(ev) {
     ev.preventDefault();
+    var isSaved = true;
     var colorChoosen = document.querySelector('#fav-color').value
     var BgColorChoosen = document.querySelector('#bg-color').value
     var shape = document.querySelector('.shape').value
     // colorChoosen.addEventListener("change", chooseFavColor, false)
 
-   createUserPrefs(colorChoosen, BgColorChoosen, shape);
+   createUserPrefs(colorChoosen, BgColorChoosen, shape, isSaved);
+}
+
+function onClear() {
+    gUserPrefs.isSaved = false;
+    // gUserPrefs = '';
 }

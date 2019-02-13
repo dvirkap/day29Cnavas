@@ -1,13 +1,19 @@
 'use strict'
 var gCanvas;
 var gCdraw;
-var gUserPrefs;
+var gUserPrefs = {
+    strokeColor: '',
+    bgColor: '',
+    shape: '',
+    isSaved: false
+};
 
-function createUserPrefs(stroke,bgcolor,shape) {
+function createUserPrefs(stroke,bgcolor,shape, isSaved) {
    return gUserPrefs = {
         strokeColor: stroke,
         bgColor: bgcolor,
-        shape: shape
+        shape: shape,
+        isSaved: isSaved
     }
 }
 
@@ -56,9 +62,9 @@ function doUploadImg(elForm, onSuccess) {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  function chooseFavColor(ev) {
-    // console.log(ev);
-    var newColor = ev.target.value;
-    gCdraw.strokeStyle = newColor;
-    // console.log(gCdraw.strokeStyle);
-}
+//   function chooseFavColor(ev) {
+//     // console.log(ev);
+//     var newColor = ev.target.value;
+//     gCdraw.strokeStyle = newColor;
+//     // console.log(gCdraw.strokeStyle);
+// }
