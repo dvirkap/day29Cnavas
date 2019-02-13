@@ -10,6 +10,7 @@ var colorChoosen = document.querySelector('#fav-color')
 colorChoosen.addEventListener("change", chooseFavColor, false)
 // console.log(colorChoosen);
 
+
 function chooseFavColor(ev) {
     // console.log(ev);
     var newColor = ev.target.value;
@@ -26,8 +27,8 @@ function canvasClicked(ev) {
 }
 
 function mouseMove(ev) {
-    // console.log(ev);
-    if (isMouseDown) {
+    console.log(ev);
+    if (isMouseDown && ev.buttons === 1) {
         gCdraw.stroke()
         gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
     }
