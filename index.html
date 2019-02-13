@@ -22,7 +22,7 @@
             <button class="clear" onclick= "onClear()">Clear</button>
 
         </form>
-        <canvas id="sarelDvir" width="500" height="500" onclick="canvasClicked(event)" ></canvas>
+        <canvas id="sarelDvir" width="500" height="500" onmousedown="canvasClicked(event)"  onmousemove="mouseMove(event)"></canvas>
     </main>
         <script src="js/controller.js"></script>
         <script src="js/canvas-service.js"></script>
