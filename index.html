@@ -14,17 +14,20 @@
             Stroke: <input type="color" id="fav-color" value="#ff5577"/>
             Background : <input type="color" id="bg-color" value="#ff5577"/>
             <select class="shape">
-                <option value="square">SQUARE</option>
-                <option value="rect">RECTANGLE</option>
+                <option value="rect">SQUARE</option>
+                <option value="triangle">TRIANGLE</option>
                 <option value="circle">CIRCLE</option>
             </select>
             <button class="submit" onclick="onSave(event)">Save</button>
             <button class="clear" onclick= "onClear()">Clear</button>
-
+            
         </form> 
         <canvas id="sarelDvir" width="500" height="500" onmousedown="canvasClicked(event)"  onmousemove="mouseMove(event)"></canvas><br/>
         <a href="" type="button" onclick="downloadCanvas(this)">DOWNLOAD</a>
-
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden"/>
+            <button type="submit">Publsh</button>
+          </form>
         <div id="fb-root"></div>
         <div class="share-container"></div>
     </main>

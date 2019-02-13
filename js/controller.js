@@ -22,7 +22,26 @@ function mouseMove(ev) {
     // chooseFavColor(ev);
     if (isMouseDown && ev.buttons === 1) {
         gCdraw.fillStyle = gUserPrefs.strokeColor;
-        gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
+
+        if (gUserPrefs.shape === "rect") {
+            gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
+        }
+        if (gUserPrefs.shape === "circle") {
+            gCdraw.beginPath();
+            gCdraw.arc(ev.offsetX, ev.layerY, 50, 0, 2 * Math.PI);
+            gCdraw.stroke();
+        }
+        if (gUserPrefs.shape === "triangle") {
+            gCdraw.beginPath();
+            gCdraw.moveTo(75, 50);
+            gCdraw.lineTo(100, 75);
+            gCdraw.lineTo(100, 25);
+            // gCdraw.moveTo(75, 50);
+            // gCdraw.lineTo(100, 75);
+            // gCdraw.lineTo(100, 25);
+            gCdraw.fill();
+        }
+
     }
 }
 
@@ -37,11 +56,11 @@ function onSave(ev) {
     var colorChoosen = document.querySelector('#fav-color').value
     var BgColorChoosen = document.querySelector('#bg-color').value
     var shape = document.querySelector('.shape').value
-    // colorChoosen.addEventListener("change", chooseFavColor, false)
+
+    //set background color
     gCdraw.fillStyle = BgColorChoosen;
     gCdraw.fillRect(0, 0, gCanvas.width, gCanvas.height)
    createUserPrefs(colorChoosen, BgColorChoosen, shape, isSaved);
-   //set background color
 }
 
 function onClear() {
