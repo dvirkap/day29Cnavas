@@ -27,13 +27,18 @@ function mouseMove(ev) {
             gCdraw.fillRect(ev.offsetX, ev.offsetY, 100, 100);
         }
         if (gUserPrefs.shape === "circle") {
-            gCdraw.arc(ev.offsetX, ev.offsetY, 100, 100);
+            gCdraw.beginPath();
+            gCdraw.arc(ev.offsetX, ev.layerY, 50, 0, 2 * Math.PI);
+            gCdraw.stroke();
         }
         if (gUserPrefs.shape === "triangle") {
             gCdraw.beginPath();
-            gCdraw.moveTo(ev.layerX, ev.layerY);
+            gCdraw.moveTo(75, 50);
             gCdraw.lineTo(100, 75);
             gCdraw.lineTo(100, 25);
+            // gCdraw.moveTo(75, 50);
+            // gCdraw.lineTo(100, 75);
+            // gCdraw.lineTo(100, 25);
             gCdraw.fill();
         }
 
