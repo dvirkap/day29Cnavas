@@ -1,0 +1,9 @@
+canvas {
+    border: 1px solid black;
+}
+
+.canvas wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

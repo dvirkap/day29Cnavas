@@ -7,8 +7,9 @@ function init() {
 }
 
 function chooseFavColor() {
-    var colorChoosen = document.querySelector('#fav-color')
+    var colorChoosen = document.querySelector('#fav-color');
     console.log(colorChoosen);
+}
     
 function canvasClicked(ev) {
     console.log("work");
